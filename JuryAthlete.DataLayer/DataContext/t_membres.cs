@@ -23,7 +23,7 @@ namespace JuryAthlete.DataLayer.DataContext
         public string f_email2 { get; set; }
         public string f_email3 { get; set; }
         public Nullable<System.DateTime> f_anniversaire { get; set; }
-        public string f_entry_dt { get; set; }
+        public Nullable<System.DateTime> f_entry_dt { get; set; }
         public Nullable<int> f_actif { get; set; }
         public string f_sexe { get; set; }
         public string f_phone_visible { get; set; }

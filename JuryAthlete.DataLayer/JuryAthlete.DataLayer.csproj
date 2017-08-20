@@ -65,6 +65,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataContext\AthleteJury.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AthleteJury.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\AthleteJury.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AthleteJury.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\AthleteJury.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AthleteJury.edmx</DependentUpon>
+    </Compile>
     <Compile Include="DataContext\Jury.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -82,19 +97,37 @@
     </Compile>
     <Compile Include="DataContext\JuryAtheleteEntities.cs" />
     <Compile Include="DataContext\t_competitions.cs">
-      <DependentUpon>Jury.tt</DependentUpon>
+      <DependentUpon>AthleteJury.tt</DependentUpon>
     </Compile>
     <Compile Include="DataContext\t_md_saisons.cs">
-      <DependentUpon>Jury.tt</DependentUpon>
+      <DependentUpon>AthleteJury.tt</DependentUpon>
     </Compile>
     <Compile Include="DataContext\t_membres.cs">
-      <DependentUpon>Jury.tt</DependentUpon>
+      <DependentUpon>AthleteJury.tt</DependentUpon>
     </Compile>
     <Compile Include="DataContext\t_membres_acces.cs">
-      <DependentUpon>Jury.tt</DependentUpon>
+      <DependentUpon>AthleteJury.tt</DependentUpon>
     </Compile>
     <Compile Include="DataContext\t_officiels.cs">
+      <DependentUpon>AthleteJury.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\usp_GetOfficielsByCompetition_Result.cs">
       <DependentUpon>Jury.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\usp_OfficielsMeritantsList_Result.cs">
+      <DependentUpon>AthleteJury.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\usp_PlannedBenefitsPerSaison_Result.cs">
+      <DependentUpon>Jury.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\usp_PlannedBenefits_Result.cs">
+      <DependentUpon>Jury.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\usp_Summary_Result.cs">
+      <DependentUpon>Jury.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\usp_Upcomingcompetitions_Result.cs">
+      <DependentUpon>AthleteJury.tt</DependentUpon>
     </Compile>
     <Compile Include="Implementation\DBWrapper.cs" />
     <Compile Include="Implementation\JuryDAO.cs" />
@@ -107,6 +140,13 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Jury.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="DataContext\AthleteJury.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AthleteJury.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DataContext\AthleteJury.edmx.diagram">
+      <DependentUpon>AthleteJury.edmx</DependentUpon>
+    </None>
     <None Include="DataContext\Jury.edmx.diagram">
       <DependentUpon>Jury.edmx</DependentUpon>
     </None>
@@ -114,6 +154,16 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="DataContext\AthleteJury.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AthleteJury.edmx</DependentUpon>
+      <LastGenOutput>AthleteJury.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataContext\AthleteJury.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AthleteJury.edmx</DependentUpon>
+      <LastGenOutput>AthleteJury.cs</LastGenOutput>
+    </Content>
     <Content Include="DataContext\Jury.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Jury.edmx</DependentUpon>

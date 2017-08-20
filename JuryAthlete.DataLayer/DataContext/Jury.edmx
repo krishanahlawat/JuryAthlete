@@ -140,6 +140,23 @@
           <Property Name="f_lastupdate_who" Type="varchar" MaxLength="30" />
           <Property Name="f_lastupdate_dt" Type="varchar" MaxLength="999" />
         </EntityType>
+        <Function Name="usp_GetOfficielsByCompetition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="jury">
+          <Parameter Name="competitionId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_OfficielsMeritantsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="jury" />
+        <Function Name="usp_PlannedBenefits" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="jury">
+          <Parameter Name="Year" Type="int" Mode="In" />
+          <Parameter Name="Month" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_PlannedBenefitsPerSaison" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="jury">
+          <Parameter Name="f_officiel_id" Type="int" Mode="In" />
+          <Parameter Name="saison" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_Summary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="jury">
+          <Parameter Name="f_officiel_id" Type="int" Mode="In" />
+          <Parameter Name="saison" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_Upcomingcompetitions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="jury" />
         <EntityContainer Name="JuryAtheleteModelStoreContainer">
           <EntitySet Name="t_competitions" EntityType="Self.t_competitions" Schema="jury" store:Type="Tables" />
           <EntitySet Name="t_md_saisons" EntityType="Self.t_md_saisons" Schema="jury" store:Type="Tables" />
@@ -179,6 +196,23 @@
           <EntitySet Name="t_membres_acces" EntityType="JuryAtheleteModel.t_membres_acces" />
           <EntitySet Name="t_officiels" EntityType="JuryAtheleteModel.t_officiels" />
           <EntitySet Name="t_md_saisons" EntityType="JuryAtheleteModel.t_md_saisons" />
+          <FunctionImport Name="usp_GetOfficielsByCompetition" ReturnType="Collection(JuryAtheleteModel.usp_GetOfficielsByCompetition_Result)">
+            <Parameter Name="competitionId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_OfficielsMeritantsList" ReturnType="Collection(JuryAtheleteModel.usp_OfficielsMeritantsList_Result)" />
+          <FunctionImport Name="usp_PlannedBenefits" ReturnType="Collection(JuryAtheleteModel.usp_PlannedBenefits_Result)">
+            <Parameter Name="Year" Mode="In" Type="Int32" />
+            <Parameter Name="Month" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_PlannedBenefitsPerSaison" ReturnType="Collection(JuryAtheleteModel.usp_PlannedBenefitsPerSaison_Result)">
+            <Parameter Name="f_officiel_id" Mode="In" Type="Int32" />
+            <Parameter Name="saison" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Summary" ReturnType="Collection(JuryAtheleteModel.usp_Summary_Result)">
+            <Parameter Name="f_officiel_id" Mode="In" Type="Int32" />
+            <Parameter Name="saison" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Upcomingcompetitions" ReturnType="Collection(JuryAtheleteModel.usp_Upcomingcompetitions_Result)" />
         </EntityContainer>
         <EntityType Name="t_membres">
           <Key>
@@ -293,6 +327,72 @@
           <Property Name="f_start_dt" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="f_end_dt" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
+        <ComplexType Name="usp_GetOfficielsByCompetition_Result">
+          <Property Type="String" Name="Function" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="status" Nullable="false" />
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="Officiel" Nullable="false" MaxLength="101" />
+        </ComplexType>
+        <ComplexType Name="usp_OfficielsMeritantsList_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="f_annee" Nullable="false" />
+          <Property Type="String" Name="f_nom" Nullable="true" MaxLength="101" />
+          <Property Type="Int32" Name="f_officiel_id" Nullable="true" />
+          <Property Type="String" Name="f_remarque" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="f_actif" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_PlannedBenefits_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="f_nom" Nullable="true" MaxLength="40" />
+          <Property Type="DateTime" Name="f_date" Nullable="false" />
+          <Property Type="String" Name="f_heure" Nullable="true" MaxLength="10" />
+          <Property Type="Byte" Name="f_matin" Nullable="false" />
+          <Property Type="Byte" Name="f_apresmidi" Nullable="false" />
+          <Property Type="Byte" Name="f_soir" Nullable="false" />
+          <Property Type="String" Name="f_club" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="f_lieu" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="f_type" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="f_convocation_demande" Nullable="true" />
+          <Property Type="String" Name="f_convocation" Nullable="true" MaxLength="255" />
+          <Property Type="Byte" Name="f_rapport" Nullable="false" />
+          <Property Type="Byte" Name="f_actif" Nullable="false" />
+          <Property Type="Byte" Name="f_visible" Nullable="true" />
+          <Property Type="String" Name="f_entry_dt" Nullable="false" MaxLength="999" />
+          <Property Type="String" Name="f_update_dt" Nullable="true" MaxLength="999" />
+        </ComplexType>
+        <ComplexType Name="usp_PlannedBenefitsPerSaison_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="DateTime" Name="f_date" Nullable="false" />
+          <Property Type="String" Name="f_club" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="f_nom" Nullable="false" MaxLength="20" />
+          <Property Type="Byte" Name="f_matin" Nullable="false" />
+          <Property Type="Byte" Name="f_apresmidi" Nullable="false" />
+          <Property Type="Byte" Name="f_soir" Nullable="false" />
+          <Property Type="String" Name="f_creation_dt" Nullable="false" MaxLength="999" />
+          <Property Type="String" Name="f_update_dt" Nullable="true" MaxLength="999" />
+        </ComplexType>
+        <ComplexType Name="usp_Summary_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="f_status" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="nb_tot" Nullable="true" />
+          <Property Type="Int32" Name="nb_past" Nullable="true" />
+          <Property Type="Int32" Name="nb_fut" Nullable="true" />
+          <Property Type="Int32" Name="f_order" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="usp_Upcomingcompetitions_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="f_nom" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="date" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="f_heure" Nullable="true" MaxLength="10" />
+          <Property Type="Byte" Name="f_matin" Nullable="false" />
+          <Property Type="Byte" Name="f_apresmidi" Nullable="false" />
+          <Property Type="Byte" Name="f_soir" Nullable="false" />
+          <Property Type="String" Name="f_club" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="lieu" Nullable="false" MaxLength="478" />
+          <Property Type="Int32" Name="saison_id" Nullable="false" />
+          <Property Type="String" Name="f_entry_dt" Nullable="false" MaxLength="999" />
+          <Property Type="Byte" Name="f_visible" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -439,6 +539,96 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetOfficielsByCompetition" FunctionName="JuryAtheleteModel.Store.usp_GetOfficielsByCompetition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JuryAtheleteModel.usp_GetOfficielsByCompetition_Result">
+                <ScalarProperty Name="Function" ColumnName="Function" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Officiel" ColumnName="Officiel" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_OfficielsMeritantsList" FunctionName="JuryAtheleteModel.Store.usp_OfficielsMeritantsList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JuryAtheleteModel.usp_OfficielsMeritantsList_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="f_annee" ColumnName="f_annee" />
+                <ScalarProperty Name="f_nom" ColumnName="f_nom" />
+                <ScalarProperty Name="f_officiel_id" ColumnName="f_officiel_id" />
+                <ScalarProperty Name="f_remarque" ColumnName="f_remarque" />
+                <ScalarProperty Name="f_actif" ColumnName="f_actif" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_PlannedBenefits" FunctionName="JuryAtheleteModel.Store.usp_PlannedBenefits">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JuryAtheleteModel.usp_PlannedBenefits_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="f_nom" ColumnName="f_nom" />
+                <ScalarProperty Name="f_date" ColumnName="f_date" />
+                <ScalarProperty Name="f_heure" ColumnName="f_heure" />
+                <ScalarProperty Name="f_matin" ColumnName="f_matin" />
+                <ScalarProperty Name="f_apresmidi" ColumnName="f_apresmidi" />
+                <ScalarProperty Name="f_soir" ColumnName="f_soir" />
+                <ScalarProperty Name="f_club" ColumnName="f_club" />
+                <ScalarProperty Name="f_lieu" ColumnName="f_lieu" />
+                <ScalarProperty Name="f_type" ColumnName="f_type" />
+                <ScalarProperty Name="f_convocation_demande" ColumnName="f_convocation_demande" />
+                <ScalarProperty Name="f_convocation" ColumnName="f_convocation" />
+                <ScalarProperty Name="f_rapport" ColumnName="f_rapport" />
+                <ScalarProperty Name="f_actif" ColumnName="f_actif" />
+                <ScalarProperty Name="f_visible" ColumnName="f_visible" />
+                <ScalarProperty Name="f_entry_dt" ColumnName="f_entry_dt" />
+                <ScalarProperty Name="f_update_dt" ColumnName="f_update_dt" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_PlannedBenefitsPerSaison" FunctionName="JuryAtheleteModel.Store.usp_PlannedBenefitsPerSaison">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JuryAtheleteModel.usp_PlannedBenefitsPerSaison_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="f_date" ColumnName="f_date" />
+                <ScalarProperty Name="f_club" ColumnName="f_club" />
+                <ScalarProperty Name="f_nom" ColumnName="f_nom" />
+                <ScalarProperty Name="f_matin" ColumnName="f_matin" />
+                <ScalarProperty Name="f_apresmidi" ColumnName="f_apresmidi" />
+                <ScalarProperty Name="f_soir" ColumnName="f_soir" />
+                <ScalarProperty Name="f_creation_dt" ColumnName="f_creation_dt" />
+                <ScalarProperty Name="f_update_dt" ColumnName="f_update_dt" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Summary" FunctionName="JuryAtheleteModel.Store.usp_Summary">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JuryAtheleteModel.usp_Summary_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="f_status" ColumnName="f_status" />
+                <ScalarProperty Name="nb_tot" ColumnName="nb_tot" />
+                <ScalarProperty Name="nb_past" ColumnName="nb_past" />
+                <ScalarProperty Name="nb_fut" ColumnName="nb_fut" />
+                <ScalarProperty Name="f_order" ColumnName="f_order" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Upcomingcompetitions" FunctionName="JuryAtheleteModel.Store.usp_Upcomingcompetitions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JuryAtheleteModel.usp_Upcomingcompetitions_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="f_nom" ColumnName="f_nom" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="f_heure" ColumnName="f_heure" />
+                <ScalarProperty Name="f_matin" ColumnName="f_matin" />
+                <ScalarProperty Name="f_apresmidi" ColumnName="f_apresmidi" />
+                <ScalarProperty Name="f_soir" ColumnName="f_soir" />
+                <ScalarProperty Name="f_club" ColumnName="f_club" />
+                <ScalarProperty Name="lieu" ColumnName="lieu" />
+                <ScalarProperty Name="saison_id" ColumnName="saison_id" />
+                <ScalarProperty Name="f_entry_dt" ColumnName="f_entry_dt" />
+                <ScalarProperty Name="f_visible" ColumnName="f_visible" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

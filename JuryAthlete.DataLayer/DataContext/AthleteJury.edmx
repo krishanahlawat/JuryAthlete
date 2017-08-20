@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AthleteJuryModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="t_competitions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="f_nom" Type="varchar" MaxLength="40" />
+          <Property Name="f_date" Type="date" Nullable="false" />
+          <Property Name="f_heure" Type="varchar" MaxLength="10" />
+          <Property Name="f_matin" Type="tinyint" Nullable="false" />
+          <Property Name="f_apresmidi" Type="tinyint" Nullable="false" />
+          <Property Name="f_soir" Type="tinyint" Nullable="false" />
+          <Property Name="f_club" Type="varchar" MaxLength="10" />
+          <Property Name="f_lieu" Type="varchar" MaxLength="255" />
+          <Property Name="f_type" Type="varchar" MaxLength="100" />
+          <Property Name="f_convocation_demande" Type="int" />
+          <Property Name="f_convocation" Type="varchar" MaxLength="255" />
+          <Property Name="f_rapport" Type="tinyint" Nullable="false" />
+          <Property Name="f_actif" Type="tinyint" Nullable="false" />
+          <Property Name="f_visible" Type="tinyint" />
+          <Property Name="f_entry_dt" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="f_update_dt" Type="timestamp" Precision="0" />
+        </EntityType>
+        <EntityType Name="t_md_saisons">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="f_saison" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="f_start_dt" Type="date" Nullable="false" />
+          <Property Name="f_end_dt" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_membres">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="f_nom" Type="varchar" MaxLength="50" />
+          <Property Name="f_prenom" Type="varchar" MaxLength="50" />
+          <Property Name="f_phone" Type="varchar" MaxLength="50" />
+          <Property Name="f_brevet" Type="int" />
+          <Property Name="f_email" Type="varchar" MaxLength="50" />
+          <Property Name="f_email2" Type="varchar" MaxLength="50" />
+          <Property Name="f_email3" Type="varchar" MaxLength="50" />
+          <Property Name="f_anniversaire" Type="date" />
+          <Property Name="f_entry_dt" Type="datetime" Precision="0" />
+          <Property Name="f_actif" Type="int" />
+          <Property Name="f_sexe" Type="varchar" MaxLength="20" />
+          <Property Name="f_phone_visible" Type="varchar" MaxLength="5" />
+          <Property Name="f_email_visible" Type="varchar" MaxLength="5" />
+          <Property Name="f_adresse" Type="varchar" MaxLength="100" />
+          <Property Name="f_cp" Type="varchar" MaxLength="10" />
+          <Property Name="f_ville" Type="varchar" MaxLength="30" />
+          <Property Name="f_dan_dt" Type="date" />
+          <Property Name="f_photo" Type="varchar" MaxLength="100" />
+          <Property Name="f_membre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="t_membres_acces">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="f_nom" Type="varchar" MaxLength="50" />
+          <Property Name="f_prenom" Type="varchar" MaxLength="50" />
+          <Property Name="f_nbrmembre" Type="varchar" MaxLength="30" />
+          <Property Name="f_login" Type="varchar" MaxLength="45" />
+          <Property Name="f_password" Type="varchar" MaxLength="100" />
+          <Property Name="f_phone" Type="varchar" MaxLength="50" />
+          <Property Name="f_phone2" Type="varchar" MaxLength="50" />
+          <Property Name="f_brevet" Type="varchar" MaxLength="50" />
+          <Property Name="f_role" Type="varchar" MaxLength="10" />
+          <Property Name="f_acces" Type="char" MaxLength="1" />
+          <Property Name="f_entryDT" Type="varchar" MaxLength="5" />
+          <Property Name="f_email_1" Type="varchar" MaxLength="100" />
+          <Property Name="f_email_2" Type="varchar" MaxLength="100" />
+          <Property Name="f_email_3" Type="varchar" MaxLength="100" />
+          <Property Name="f_anniversaire_dt" Type="datetime" Precision="0" />
+          <Property Name="f_entry_dt" Type="datetime" Precision="0" />
+          <Property Name="f_actif" Type="int" />
+          <Property Name="f_sexe" Type="varchar" MaxLength="20" />
+          <Property Name="f_phone_visible" Type="varchar" MaxLength="5" />
+          <Property Name="f_email_visible" Type="varchar" MaxLength="5" />
+          <Property Name="f_adresse" Type="varchar" MaxLength="100" />
+          <Property Name="f_cp" Type="varchar" MaxLength="10" />
+          <Property Name="f_ville" Type="varchar" MaxLength="30" />
+          <Property Name="f_pays" Type="varchar" MaxLength="50" />
+          <Property Name="f_dan_dt" Type="datetime" Precision="0" />
+          <Property Name="f_photo" Type="varchar" MaxLength="100" />
+          <Property Name="f_infosupp" Type="text" />
+          <Property Name="f_nbrmembre_famille" Type="int" />
+          <Property Name="f_lastupdate_who" Type="varchar" MaxLength="30" />
+          <Property Name="f_lastupdate_dt" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="t_officiels">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="f_membre_id" Type="int" />
+          <Property Name="f_nom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="f_prenom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="f_surnom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="f_phone" Type="varchar" MaxLength="50" />
+          <Property Name="f_phone_2" Type="varchar" MaxLength="50" />
+          <Property Name="f_phone_contact" Type="text" />
+          <Property Name="f_brevet" Type="int" Nullable="false" />
+          <Property Name="f_entryDT" Type="varchar" MaxLength="5" />
+          <Property Name="f_email_1" Type="varchar" MaxLength="100" />
+          <Property Name="f_email_2" Type="varchar" MaxLength="100" />
+          <Property Name="f_email_3" Type="varchar" MaxLength="100" />
+          <Property Name="f_anniversaire_dt" Type="datetime" Precision="0" />
+          <Property Name="f_actif" Type="int" />
+          <Property Name="f_sexe" Type="varchar" MaxLength="20" />
+          <Property Name="f_club" Type="varchar" MaxLength="5" />
+          <Property Name="f_province" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="f_taille_polo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="f_taille_pantalon" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="f_taille_chaussure" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="f_courrier_papier" Type="int" />
+          <Property Name="f_phone_visible" Type="varchar" MaxLength="5" />
+          <Property Name="f_email_visible" Type="varchar" MaxLength="5" />
+          <Property Name="f_adresse" Type="varchar" MaxLength="100" />
+          <Property Name="f_cp" Type="varchar" MaxLength="10" />
+          <Property Name="f_ville" Type="varchar" MaxLength="30" />
+          <Property Name="f_pays" Type="varchar" MaxLength="50" />
+          <Property Name="f_photo" Type="varchar" MaxLength="100" />
+          <Property Name="f_infosupp" Type="text" />
+          <Property Name="f_entry_dt" Type="datetime" Precision="0" />
+          <Property Name="f_brevet_I_dt" Type="date" />
+          <Property Name="f_brevet_II_dt" Type="date" />
+          <Property Name="f_brevet_III_dt" Type="date" />
+          <Property Name="f_brevet_ATO_dt" Type="date" />
+          <Property Name="f_brevet_ITO_dt" Type="date" />
+          <Property Name="f_lastupdate_who" Type="varchar" MaxLength="30" />
+          <Property Name="f_lastupdate_dt" Type="timestamp" Precision="0" />
+        </EntityType>
+        <Function Name="usp_OfficielsMeritantsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="AthleteJury">
+          <Parameter Name="year" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_Upcomingcompetitions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="AthleteJury" />
+        <EntityContainer Name="AthleteJuryModelStoreContainer">
+          <EntitySet Name="t_competitions" EntityType="Self.t_competitions" Schema="AthleteJury" store:Type="Tables" />
+          <EntitySet Name="t_md_saisons" EntityType="Self.t_md_saisons" Schema="AthleteJury" store:Type="Tables" />
+          <EntitySet Name="t_membres" EntityType="Self.t_membres" Schema="AthleteJury" store:Type="Tables" />
+          <EntitySet Name="t_membres_acces" EntityType="Self.t_membres_acces" Schema="AthleteJury" store:Type="Tables" />
+          <EntitySet Name="t_officiels" EntityType="Self.t_officiels" Schema="AthleteJury" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AthleteJuryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="t_competitions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="f_nom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="f_date" Type="DateTime" Nullable="false" />
+          <Property Name="f_heure" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="f_matin" Type="SByte" Nullable="false" />
+          <Property Name="f_apresmidi" Type="SByte" Nullable="false" />
+          <Property Name="f_soir" Type="SByte" Nullable="false" />
+          <Property Name="f_club" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="f_lieu" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="f_type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="f_convocation_demande" Type="Int32" />
+          <Property Name="f_convocation" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="f_rapport" Type="SByte" Nullable="false" />
+          <Property Name="f_actif" Type="SByte" Nullable="false" />
+          <Property Name="f_visible" Type="SByte" />
+          <Property Name="f_entry_dt" Type="DateTime" Nullable="false" />
+          <Property Name="f_update_dt" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="t_md_saisons">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="f_saison" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="f_start_dt" Type="DateTime" Nullable="false" />
+          <Property Name="f_end_dt" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_membres">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="f_nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="f_prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="f_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="f_brevet" Type="Int32" />
+          <Property Name="f_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="f_email2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="f_email3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="f_anniversaire" Type="DateTime" />
+          <Property Name="f_entry_dt" Type="DateTime" />
+          <Property Name="f_actif" Type="Int32" />
+          <Property Name="f_sexe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="f_phone_visible" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="f_email_visible" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="f_adresse" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="f_cp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="f_ville" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="f_dan_dt" Type="DateTime" />
+          <Property Name="f_photo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="f_membre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_membres_acces">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="f_nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="f_prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="f_nbrmembre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="f_login" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="f_password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="f_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="f_phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="f_brevet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="f_role" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="f_acces" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="f_entryDT" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="f_email_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="f_email_2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="f_email_3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="f_anniversaire_dt" Type="DateTime" />
+          <Property Name="f_entry_dt" Type="DateTime" />
+          <Property Name="f_actif" Type="Int32" />
+          <Property Name="f_sexe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="f_phone_visible" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="f_email_visible" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="f_adresse" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="f_cp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="f_ville" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="f_pays" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="f_dan_dt" Type="DateTime" />
+          <Property Name="f_photo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="f_infosupp" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="f_nbrmembre_famille" Type="Int32" />
+          <Property Name="f_lastupdate_who" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="f_lastupdate_dt" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="t_officiels">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="f_membre_id" Type="Int32" />
+          <Property Name="f_nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="f_prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="f_surnom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="f_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="f_phone_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="f_phone_contact" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="f_brevet" Type="Int32" Nullable="false" />
+          <Property Name="f_entryDT" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="f_email_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="f_email_2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="f_email_3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="f_anniversaire_dt" Type="DateTime" />
+          <Property Name="f_actif" Type="Int32" />
+          <Property Name="f_sexe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="f_club" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="f_province" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="f_taille_polo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="f_taille_pantalon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="f_taille_chaussure" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="f_courrier_papier" Type="Int32" />
+          <Property Name="f_phone_visible" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="f_email_visible" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="f_adresse" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="f_cp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="f_ville" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="f_pays" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="f_photo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="f_infosupp" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="f_entry_dt" Type="DateTime" />
+          <Property Name="f_brevet_I_dt" Type="DateTime" />
+          <Property Name="f_brevet_II_dt" Type="DateTime" />
+          <Property Name="f_brevet_III_dt" Type="DateTime" />
+          <Property Name="f_brevet_ATO_dt" Type="DateTime" />
+          <Property Name="f_brevet_ITO_dt" Type="DateTime" />
+          <Property Name="f_lastupdate_who" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="f_lastupdate_dt" Type="DateTime" />
+        </EntityType>
+        <EntityContainer Name="AthleteJuryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="t_competitions" EntityType="Self.t_competitions" />
+          <EntitySet Name="t_md_saisons" EntityType="Self.t_md_saisons" />
+          <EntitySet Name="t_membres" EntityType="Self.t_membres" />
+          <EntitySet Name="t_membres_acces" EntityType="Self.t_membres_acces" />
+          <EntitySet Name="t_officiels" EntityType="Self.t_officiels" />
+          <FunctionImport Name="usp_OfficielsMeritantsList" ReturnType="Collection(AthleteJuryModel.usp_OfficielsMeritantsList_Result)">
+            <Parameter Name="year" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Upcomingcompetitions" ReturnType="Collection(AthleteJuryModel.usp_Upcomingcompetitions_Result)" />
+        </EntityContainer>
+        <ComplexType Name="usp_OfficielsMeritantsList_Result" />
+        <ComplexType Name="usp_Upcomingcompetitions_Result" />
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AthleteJuryModelStoreContainer" CdmEntityContainer="AthleteJuryEntities">
+          <EntitySetMapping Name="t_competitions">
+            <EntityTypeMapping TypeName="AthleteJuryModel.t_competitions">
+              <MappingFragment StoreEntitySet="t_competitions">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="f_nom" ColumnName="f_nom" />
+                <ScalarProperty Name="f_date" ColumnName="f_date" />
+                <ScalarProperty Name="f_heure" ColumnName="f_heure" />
+                <ScalarProperty Name="f_matin" ColumnName="f_matin" />
+                <ScalarProperty Name="f_apresmidi" ColumnName="f_apresmidi" />
+                <ScalarProperty Name="f_soir" ColumnName="f_soir" />
+                <ScalarProperty Name="f_club" ColumnName="f_club" />
+                <ScalarProperty Name="f_lieu" ColumnName="f_lieu" />
+                <ScalarProperty Name="f_type" ColumnName="f_type" />
+                <ScalarProperty Name="f_convocation_demande" ColumnName="f_convocation_demande" />
+                <ScalarProperty Name="f_convocation" ColumnName="f_convocation" />
+                <ScalarProperty Name="f_rapport" ColumnName="f_rapport" />
+                <ScalarProperty Name="f_actif" ColumnName="f_actif" />
+                <ScalarProperty Name="f_visible" ColumnName="f_visible" />
+                <ScalarProperty Name="f_entry_dt" ColumnName="f_entry_dt" />
+                <ScalarProperty Name="f_update_dt" ColumnName="f_update_dt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_md_saisons">
+            <EntityTypeMapping TypeName="AthleteJuryModel.t_md_saisons">
+              <MappingFragment StoreEntitySet="t_md_saisons">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="f_saison" ColumnName="f_saison" />
+                <ScalarProperty Name="f_start_dt" ColumnName="f_start_dt" />
+                <ScalarProperty Name="f_end_dt" ColumnName="f_end_dt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_membres">
+            <EntityTypeMapping TypeName="AthleteJuryModel.t_membres">
+              <MappingFragment StoreEntitySet="t_membres">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="f_nom" ColumnName="f_nom" />
+                <ScalarProperty Name="f_prenom" ColumnName="f_prenom" />
+                <ScalarProperty Name="f_phone" ColumnName="f_phone" />
+                <ScalarProperty Name="f_brevet" ColumnName="f_brevet" />
+                <ScalarProperty Name="f_email" ColumnName="f_email" />
+                <ScalarProperty Name="f_email2" ColumnName="f_email2" />
+                <ScalarProperty Name="f_email3" ColumnName="f_email3" />
+                <ScalarProperty Name="f_anniversaire" ColumnName="f_anniversaire" />
+                <ScalarProperty Name="f_entry_dt" ColumnName="f_entry_dt" />
+                <ScalarProperty Name="f_actif" ColumnName="f_actif" />
+                <ScalarProperty Name="f_sexe" ColumnName="f_sexe" />
+                <ScalarProperty Name="f_phone_visible" ColumnName="f_phone_visible" />
+                <ScalarProperty Name="f_email_visible" ColumnName="f_email_visible" />
+                <ScalarProperty Name="f_adresse" ColumnName="f_adresse" />
+                <ScalarProperty Name="f_cp" ColumnName="f_cp" />
+                <ScalarProperty Name="f_ville" ColumnName="f_ville" />
+                <ScalarProperty Name="f_dan_dt" ColumnName="f_dan_dt" />
+                <ScalarProperty Name="f_photo" ColumnName="f_photo" />
+                <ScalarProperty Name="f_membre" ColumnName="f_membre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_membres_acces">
+            <EntityTypeMapping TypeName="AthleteJuryModel.t_membres_acces">
+              <MappingFragment StoreEntitySet="t_membres_acces">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="f_nom" ColumnName="f_nom" />
+                <ScalarProperty Name="f_prenom" ColumnName="f_prenom" />
+                <ScalarProperty Name="f_nbrmembre" ColumnName="f_nbrmembre" />
+                <ScalarProperty Name="f_login" ColumnName="f_login" />
+                <ScalarProperty Name="f_password" ColumnName="f_password" />
+                <ScalarProperty Name="f_phone" ColumnName="f_phone" />
+                <ScalarProperty Name="f_phone2" ColumnName="f_phone2" />
+                <ScalarProperty Name="f_brevet" ColumnName="f_brevet" />
+                <ScalarProperty Name="f_role" ColumnName="f_role" />
+                <ScalarProperty Name="f_acces" ColumnName="f_acces" />
+                <ScalarProperty Name="f_entryDT" ColumnName="f_entryDT" />
+                <ScalarProperty Name="f_email_1" ColumnName="f_email_1" />
+                <ScalarProperty Name="f_email_2" ColumnName="f_email_2" />
+                <ScalarProperty Name="f_email_3" ColumnName="f_email_3" />
+                <ScalarProperty Name="f_anniversaire_dt" ColumnName="f_anniversaire_dt" />
+                <ScalarProperty Name="f_entry_dt" ColumnName="f_entry_dt" />
+                <ScalarProperty Name="f_actif" ColumnName="f_actif" />
+                <ScalarProperty Name="f_sexe" ColumnName="f_sexe" />
+                <ScalarProperty Name="f_phone_visible" ColumnName="f_phone_visible" />
+                <ScalarProperty Name="f_email_visible" ColumnName="f_email_visible" />
+                <ScalarProperty Name="f_adresse" ColumnName="f_adresse" />
+                <ScalarProperty Name="f_cp" ColumnName="f_cp" />
+                <ScalarProperty Name="f_ville" ColumnName="f_ville" />
+                <ScalarProperty Name="f_pays" ColumnName="f_pays" />
+                <ScalarProperty Name="f_dan_dt" ColumnName="f_dan_dt" />
+                <ScalarProperty Name="f_photo" ColumnName="f_photo" />
+                <ScalarProperty Name="f_infosupp" ColumnName="f_infosupp" />
+                <ScalarProperty Name="f_nbrmembre_famille" ColumnName="f_nbrmembre_famille" />
+                <ScalarProperty Name="f_lastupdate_who" ColumnName="f_lastupdate_who" />
+                <ScalarProperty Name="f_lastupdate_dt" ColumnName="f_lastupdate_dt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_officiels">
+            <EntityTypeMapping TypeName="AthleteJuryModel.t_officiels">
+              <MappingFragment StoreEntitySet="t_officiels">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="f_membre_id" ColumnName="f_membre_id" />
+                <ScalarProperty Name="f_nom" ColumnName="f_nom" />
+                <ScalarProperty Name="f_prenom" ColumnName="f_prenom" />
+                <ScalarProperty Name="f_surnom" ColumnName="f_surnom" />
+                <ScalarProperty Name="f_phone" ColumnName="f_phone" />
+                <ScalarProperty Name="f_phone_2" ColumnName="f_phone_2" />
+                <ScalarProperty Name="f_phone_contact" ColumnName="f_phone_contact" />
+                <ScalarProperty Name="f_brevet" ColumnName="f_brevet" />
+                <ScalarProperty Name="f_entryDT" ColumnName="f_entryDT" />
+                <ScalarProperty Name="f_email_1" ColumnName="f_email_1" />
+                <ScalarProperty Name="f_email_2" ColumnName="f_email_2" />
+                <ScalarProperty Name="f_email_3" ColumnName="f_email_3" />
+                <ScalarProperty Name="f_anniversaire_dt" ColumnName="f_anniversaire_dt" />
+                <ScalarProperty Name="f_actif" ColumnName="f_actif" />
+                <ScalarProperty Name="f_sexe" ColumnName="f_sexe" />
+                <ScalarProperty Name="f_club" ColumnName="f_club" />
+                <ScalarProperty Name="f_province" ColumnName="f_province" />
+                <ScalarProperty Name="f_taille_polo" ColumnName="f_taille_polo" />
+                <ScalarProperty Name="f_taille_pantalon" ColumnName="f_taille_pantalon" />
+                <ScalarProperty Name="f_taille_chaussure" ColumnName="f_taille_chaussure" />
+                <ScalarProperty Name="f_courrier_papier" ColumnName="f_courrier_papier" />
+                <ScalarProperty Name="f_phone_visible" ColumnName="f_phone_visible" />
+                <ScalarProperty Name="f_email_visible" ColumnName="f_email_visible" />
+                <ScalarProperty Name="f_adresse" ColumnName="f_adresse" />
+                <ScalarProperty Name="f_cp" ColumnName="f_cp" />
+                <ScalarProperty Name="f_ville" ColumnName="f_ville" />
+                <ScalarProperty Name="f_pays" ColumnName="f_pays" />
+                <ScalarProperty Name="f_photo" ColumnName="f_photo" />
+                <ScalarProperty Name="f_infosupp" ColumnName="f_infosupp" />
+                <ScalarProperty Name="f_entry_dt" ColumnName="f_entry_dt" />
+                <ScalarProperty Name="f_brevet_I_dt" ColumnName="f_brevet_I_dt" />
+                <ScalarProperty Name="f_brevet_II_dt" ColumnName="f_brevet_II_dt" />
+                <ScalarProperty Name="f_brevet_III_dt" ColumnName="f_brevet_III_dt" />
+                <ScalarProperty Name="f_brevet_ATO_dt" ColumnName="f_brevet_ATO_dt" />
+                <ScalarProperty Name="f_brevet_ITO_dt" ColumnName="f_brevet_ITO_dt" />
+                <ScalarProperty Name="f_lastupdate_who" ColumnName="f_lastupdate_who" />
+                <ScalarProperty Name="f_lastupdate_dt" ColumnName="f_lastupdate_dt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_OfficielsMeritantsList" FunctionName="AthleteJuryModel.Store.usp_OfficielsMeritantsList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AthleteJuryModel.usp_OfficielsMeritantsList_Result" />
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Upcomingcompetitions" FunctionName="AthleteJuryModel.Store.usp_Upcomingcompetitions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AthleteJuryModel.usp_Upcomingcompetitions_Result" />
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

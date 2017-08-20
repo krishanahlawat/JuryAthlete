@@ -29,8 +29,8 @@ namespace JuryAthlete.DataLayer.DataContext
         public string f_email_1 { get; set; }
         public string f_email_2 { get; set; }
         public string f_email_3 { get; set; }
-        public string f_anniversaire_dt { get; set; }
-        public string f_entry_dt { get; set; }
+        public Nullable<System.DateTime> f_anniversaire_dt { get; set; }
+        public Nullable<System.DateTime> f_entry_dt { get; set; }
         public Nullable<int> f_actif { get; set; }
         public string f_sexe { get; set; }
         public string f_phone_visible { get; set; }
@@ -39,11 +39,11 @@ namespace JuryAthlete.DataLayer.DataContext
         public string f_cp { get; set; }
         public string f_ville { get; set; }
         public string f_pays { get; set; }
-        public string f_dan_dt { get; set; }
+        public Nullable<System.DateTime> f_dan_dt { get; set; }
         public string f_photo { get; set; }
         public string f_infosupp { get; set; }
         public Nullable<int> f_nbrmembre_famille { get; set; }
         public string f_lastupdate_who { get; set; }
-        public string f_lastupdate_dt { get; set; }
+        public Nullable<System.DateTime> f_lastupdate_dt { get; set; }
     }
 }

@@ -10,37 +10,37 @@ namespace JuryAthlete.DataLayer.Implementation
 {
     public class DBWrapper
     {
-        //static Logger Logger = LogManager.GetCurrentClassLogger();
-        //public static List<usp_Upcomingcompetitions_Result> Upcomingcompetitions()
-        //{
-        //    try
-        //    {
-        //        var result = new List<usp_Upcomingcompetitions_Result>();
-        //        using (var context = JuryAtheleteEntities.GetDBContext())
-        //            result = context.usp_Upcomingcompetitions().ToList();
-        //        return result;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Logger.Error(ex);
-        //        throw;
-        //    }
-        //}
-        //public static List<usp_OfficielsMeritantsList_Result> OfficielsMeritantsList()
-        //{
-        //    try
-        //    {
-        //        var result = new List<usp_OfficielsMeritantsList_Result>();
-        //        using (var context = JuryAtheleteEntities.GetDBContext())
-        //            result = context.usp_OfficielsMeritantsList().ToList();
-        //        return result;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Logger.Error(ex);
-        //        throw;
-        //    }
-        //}
+        static Logger Logger = LogManager.GetCurrentClassLogger();
+        public static List<usp_Upcomingcompetitions_Result> Upcomingcompetitions()
+        {
+            try
+            {
+                var result = new List<usp_Upcomingcompetitions_Result>();
+                using (var context = JuryAtheleteEntities.GetDBContext())
+                    result = context.usp_Upcomingcompetitions().ToList();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex);
+                throw;
+            }
+        }
+        public static List<usp_OfficielsMeritantsList_Result> OfficielsMeritantsList()
+        {
+            try
+            {
+                var result = new List<usp_OfficielsMeritantsList_Result>();
+                using (var context = JuryAtheleteEntities.GetDBContext())
+                    result = context.usp_OfficielsMeritantsList().ToList();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex);
+                throw;
+            }
+        }
         //public static List<usp_GetOfficielsByCompetition_Result> OfficielsByCompetition(int competitionId)
         //{
         //    try

@@ -12,6 +12,9 @@ namespace JuryAthlete.DataLayer.DataContext
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class JuryAtheleteEntities : DbContext
     {
@@ -30,5 +33,63 @@ namespace JuryAthlete.DataLayer.DataContext
         public DbSet<t_membres_acces> t_membres_acces { get; set; }
         public DbSet<t_officiels> t_officiels { get; set; }
         public DbSet<t_md_saisons> t_md_saisons { get; set; }
+    
+        public virtual ObjectResult<usp_GetOfficielsByCompetition_Result> usp_GetOfficielsByCompetition(Nullable<int> competitionId)
+        {
+            var competitionIdParameter = competitionId.HasValue ?
+                new ObjectParameter("competitionId", competitionId) :
+                new ObjectParameter("competitionId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_GetOfficielsByCompetition_Result>("usp_GetOfficielsByCompetition", competitionIdParameter);
+        }
+    
+        public virtual ObjectResult<usp_OfficielsMeritantsList_Result> usp_OfficielsMeritantsList()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_OfficielsMeritantsList_Result>("usp_OfficielsMeritantsList");
+        }
+    
+        public virtual ObjectResult<usp_PlannedBenefits_Result> usp_PlannedBenefits(Nullable<int> year, Nullable<int> month)
+        {
+            var yearParameter = year.HasValue ?
+                new ObjectParameter("Year", year) :
+                new ObjectParameter("Year", typeof(int));
+    
+            var monthParameter = month.HasValue ?
+                new ObjectParameter("Month", month) :
+                new ObjectParameter("Month", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PlannedBenefits_Result>("usp_PlannedBenefits", yearParameter, monthParameter);
+        }
+    
+        public virtual ObjectResult<usp_PlannedBenefitsPerSaison_Result> usp_PlannedBenefitsPerSaison(Nullable<int> f_officiel_id, Nullable<int> saison)
+        {
+            var f_officiel_idParameter = f_officiel_id.HasValue ?
+                new ObjectParameter("f_officiel_id", f_officiel_id) :
+                new ObjectParameter("f_officiel_id", typeof(int));
+    
+            var saisonParameter = saison.HasValue ?
+                new ObjectParameter("saison", saison) :
+                new ObjectParameter("saison", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_PlannedBenefitsPerSaison_Result>("usp_PlannedBenefitsPerSaison", f_officiel_idParameter, saisonParameter);
+        }
+    
+        public virtual ObjectResult<usp_Summary_Result> usp_Summary(Nullable<int> f_officiel_id, Nullable<int> saison)
+        {
+            var f_officiel_idParameter = f_officiel_id.HasValue ?
+                new ObjectParameter("f_officiel_id", f_officiel_id) :
+                new ObjectParameter("f_officiel_id", typeof(int));
+    
+            var saisonParameter = saison.HasValue ?
+                new ObjectParameter("saison", saison) :
+                new ObjectParameter("saison", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_Summary_Result>("usp_Summary", f_officiel_idParameter, saisonParameter);
+        }
+    
+        public virtual ObjectResult<usp_Upcomingcompetitions_Result> usp_Upcomingcompetitions()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_Upcomingcompetitions_Result>("usp_Upcomingcompetitions");
+        }
     }
 }
