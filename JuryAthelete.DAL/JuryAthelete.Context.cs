@@ -12,9 +12,8 @@ namespace JuryAthelete.DAL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Data.Entity.Core.Objects;
-    using System.Linq;
-    
+    using System.Data.Objects;
+
     public partial class JuryAtheleteEntities : DbContext
     {
         public JuryAtheleteEntities()

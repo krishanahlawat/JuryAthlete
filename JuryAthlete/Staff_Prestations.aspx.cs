@@ -1,11 +1,7 @@
-﻿using JuryAthelete.DAL;
-using JuryAthelete.DAL.Implementation;
+﻿using JuryAthlete.DataLayer.DataContext;
+using JuryAthlete.DataLayer.Implementation;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace JuryAthlete
 {
@@ -30,22 +26,22 @@ namespace JuryAthlete
         {
             try
             {
-                int oficialId = Convert.ToInt32(ddlOfficial.SelectedValue);
-                int saisonID = Convert.ToInt32(ddlSaison.SelectedValue);
-                int competitionId = 448;
+                //int oficialId = Convert.ToInt32(ddlOfficial.SelectedValue);
+                //int saisonID = Convert.ToInt32(ddlSaison.SelectedValue);
+                //int competitionId = 448;
 
-                var summary = DBWrapper.Summary(oficialId, saisonID);
-                var plannedBenefitsPerSaison = DBWrapper.PlannedBenefitsPerSaison(oficialId, saisonID);
-                var officielsByCompetition = DBWrapper.OfficielsByCompetition(competitionId);
+                //var summary = DBWrapper.Summary(oficialId, saisonID);
+                //var plannedBenefitsPerSaison = DBWrapper.PlannedBenefitsPerSaison(oficialId, saisonID);
+                //var officielsByCompetition = DBWrapper.OfficielsByCompetition(competitionId);
 
-                gvplannedBenefitsPerSaison.DataSource = plannedBenefitsPerSaison;
-                gvplannedBenefitsPerSaison.DataBind();
+                //gvplannedBenefitsPerSaison.DataSource = plannedBenefitsPerSaison;
+                //gvplannedBenefitsPerSaison.DataBind();
 
-                gvsummary.DataSource = summary;
-                gvsummary.DataBind();
+                //gvsummary.DataSource = summary;
+                //gvsummary.DataBind();
 
-                gvOfficielsByCompetition.DataSource = officielsByCompetition;
-                gvOfficielsByCompetition.DataBind();
+                //gvOfficielsByCompetition.DataSource = officielsByCompetition;
+                //gvOfficielsByCompetition.DataBind();
             }
             catch (Exception ex)
             {
@@ -55,7 +51,7 @@ namespace JuryAthlete
 
         public void BindOfficials()
         {
-            var officials = new JuryAthleteDAO<t_officiels>();
+            var officials = new JuryDAO<t_officiels>();
             ddlOfficial.DataSource = from o in officials.GetList() select new { ID = o.id, Name = o.f_nom + " " + o.f_prenom };
             ddlOfficial.DataTextField = "Name";
             ddlOfficial.DataValueField = "ID";
@@ -64,7 +60,7 @@ namespace JuryAthlete
 
         public void BindSeasons()
         {
-            var saisons = new JuryAthleteDAO<t_md_saisons>();
+            var saisons = new JuryDAO<t_md_saisons>();
             ddlSaison.DataSource = saisons.GetList();
             ddlSaison.DataTextField = "f_saison";
             ddlSaison.DataValueField = "id";

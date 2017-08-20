@@ -26,5 +26,9 @@ namespace JuryAthlete.DataLayer.DataContext
         }
     
         public DbSet<t_competitions> t_competitions { get; set; }
+        public DbSet<t_membres> t_membres { get; set; }
+        public DbSet<t_membres_acces> t_membres_acces { get; set; }
+        public DbSet<t_officiels> t_officiels { get; set; }
+        public DbSet<t_md_saisons> t_md_saisons { get; set; }
     }
 }

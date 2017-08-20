@@ -1,11 +1,6 @@
-﻿using JuryAthelete.DAL.Implementation;
-using NLog;
+﻿using NLog;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace JuryAthlete
 {
@@ -30,20 +25,20 @@ namespace JuryAthlete
             try
             {
                 SetErrors();
-                var data = DBWrapper.OfficielsMeritantsList();
-                int pageCount = data.Count() / 4;
+                //var data = DBWrapper.OfficielsMeritantsList();
+                //int pageCount = data.Count() / 4;
 
-                GridView1.DataSource = data.Take(pageCount);
-                GridView1.DataBind();
+                //GridView1.DataSource = data.Take(pageCount);
+                //GridView1.DataBind();
 
-                GridView2.DataSource = data.Skip(pageCount).Take(pageCount);
-                GridView2.DataBind();
+                //GridView2.DataSource = data.Skip(pageCount).Take(pageCount);
+                //GridView2.DataBind();
 
-                GridView3.DataSource = data.Skip(pageCount * 2).Take(pageCount);
-                GridView3.DataBind();
+                //GridView3.DataSource = data.Skip(pageCount * 2).Take(pageCount);
+                //GridView3.DataBind();
 
-                GridView4.DataSource = data.Skip(pageCount * 3);
-                GridView4.DataBind();
+                //GridView4.DataSource = data.Skip(pageCount * 3);
+                //GridView4.DataBind();
             }
             catch (Exception ex)
             {

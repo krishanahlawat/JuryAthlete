@@ -235,10 +235,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JuryAthelete.DAL\JuryAthlete.DAL.csproj">
-      <Project>{5e6bfc26-5aaa-4fab-8708-433060422984}</Project>
-      <Name>JuryAthlete.DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\JuryAthlete.Common\JuryAthlete.Common.csproj">
       <Project>{7c1aa007-1349-4eb2-aef4-ef8a4d23ad00}</Project>
       <Name>JuryAthlete.Common</Name>

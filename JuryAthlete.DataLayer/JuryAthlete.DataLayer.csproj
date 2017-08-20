@@ -84,6 +84,19 @@
     <Compile Include="DataContext\t_competitions.cs">
       <DependentUpon>Jury.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataContext\t_md_saisons.cs">
+      <DependentUpon>Jury.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_membres.cs">
+      <DependentUpon>Jury.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_membres_acces.cs">
+      <DependentUpon>Jury.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_officiels.cs">
+      <DependentUpon>Jury.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Implementation\DBWrapper.cs" />
     <Compile Include="Implementation\JuryDAO.cs" />
     <Compile Include="Interface\IDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
