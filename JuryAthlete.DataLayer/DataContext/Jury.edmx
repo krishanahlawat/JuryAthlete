@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="JuryAtheleteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="t_competitions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="f_nom" Type="varchar" MaxLength="40" />
+          <Property Name="f_date" Type="date" Nullable="false" />
+          <Property Name="f_heure" Type="varchar" MaxLength="10" />
+          <Property Name="f_matin" Type="tinyint" Nullable="false" />
+          <Property Name="f_apresmidi" Type="tinyint" Nullable="false" />
+          <Property Name="f_soir" Type="tinyint" Nullable="false" />
+          <Property Name="f_club" Type="varchar" MaxLength="10" />
+          <Property Name="f_lieu" Type="varchar" MaxLength="255" />
+          <Property Name="f_type" Type="varchar" MaxLength="100" />
+          <Property Name="f_convocation_demande" Type="int" />
+          <Property Name="f_convocation" Type="varchar" MaxLength="255" />
+          <Property Name="f_rapport" Type="tinyint" Nullable="false" />
+          <Property Name="f_actif" Type="tinyint" Nullable="false" />
+          <Property Name="f_visible" Type="tinyint" />
+          <Property Name="f_entry_dt" Type="varchar" MaxLength="999" Nullable="false" />
+          <Property Name="f_update_dt" Type="varchar" MaxLength="999" />
+        </EntityType>
+        <EntityContainer Name="JuryAtheleteModelStoreContainer">
+          <EntitySet Name="t_competitions" EntityType="Self.t_competitions" Schema="jury" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JuryAtheleteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="t_competitions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="f_nom" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="f_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="f_heure" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="f_matin" Type="Byte" Nullable="false" />
+          <Property Name="f_apresmidi" Type="Byte" Nullable="false" />
+          <Property Name="f_soir" Type="Byte" Nullable="false" />
+          <Property Name="f_club" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="f_lieu" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="f_type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="f_convocation_demande" Type="Int32" />
+          <Property Name="f_convocation" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="f_rapport" Type="Byte" Nullable="false" />
+          <Property Name="f_actif" Type="Byte" Nullable="false" />
+          <Property Name="f_visible" Type="Byte" />
+          <Property Name="f_entry_dt" Type="String" MaxLength="999" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="f_update_dt" Type="String" MaxLength="999" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="JuryAtheleteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="t_competitions" EntityType="Self.t_competitions" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JuryAtheleteModelStoreContainer" CdmEntityContainer="JuryAtheleteEntities">
+          <EntitySetMapping Name="t_competitions">
+            <EntityTypeMapping TypeName="JuryAtheleteModel.t_competitions">
+              <MappingFragment StoreEntitySet="t_competitions">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="f_nom" ColumnName="f_nom" />
+                <ScalarProperty Name="f_date" ColumnName="f_date" />
+                <ScalarProperty Name="f_heure" ColumnName="f_heure" />
+                <ScalarProperty Name="f_matin" ColumnName="f_matin" />
+                <ScalarProperty Name="f_apresmidi" ColumnName="f_apresmidi" />
+                <ScalarProperty Name="f_soir" ColumnName="f_soir" />
+                <ScalarProperty Name="f_club" ColumnName="f_club" />
+                <ScalarProperty Name="f_lieu" ColumnName="f_lieu" />
+                <ScalarProperty Name="f_type" ColumnName="f_type" />
+                <ScalarProperty Name="f_convocation_demande" ColumnName="f_convocation_demande" />
+                <ScalarProperty Name="f_convocation" ColumnName="f_convocation" />
+                <ScalarProperty Name="f_rapport" ColumnName="f_rapport" />
+                <ScalarProperty Name="f_actif" ColumnName="f_actif" />
+                <ScalarProperty Name="f_visible" ColumnName="f_visible" />
+                <ScalarProperty Name="f_entry_dt" ColumnName="f_entry_dt" />
+                <ScalarProperty Name="f_update_dt" ColumnName="f_update_dt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
