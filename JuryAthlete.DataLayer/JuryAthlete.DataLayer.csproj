@@ -30,15 +30,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MySql.Data.Entity.EF5, Version=6.7.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.Entity.6.7.9\lib\net45\MySql.Data.Entity.EF5.dll</HintPath>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Web.6.9.9\lib\net45\MySql.Web.dll</HintPath>
@@ -51,7 +55,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -80,21 +83,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AthleteJury.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DataContext\Jury.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Jury.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataContext\Jury.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Jury.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataContext\Jury.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Jury.edmx</DependentUpon>
-    </Compile>
     <Compile Include="DataContext\JuryAtheleteEntities.cs" />
     <Compile Include="DataContext\t_competitions.cs">
       <DependentUpon>AthleteJury.tt</DependentUpon>
@@ -111,24 +99,13 @@
     <Compile Include="DataContext\t_officiels.cs">
       <DependentUpon>AthleteJury.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataContext\usp_GetOfficielsByCompetition_Result.cs">
-      <DependentUpon>Jury.tt</DependentUpon>
-    </Compile>
     <Compile Include="DataContext\usp_OfficielsMeritantsList_Result.cs">
       <DependentUpon>AthleteJury.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataContext\usp_PlannedBenefitsPerSaison_Result.cs">
-      <DependentUpon>Jury.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataContext\usp_PlannedBenefits_Result.cs">
-      <DependentUpon>Jury.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataContext\usp_Summary_Result.cs">
-      <DependentUpon>Jury.tt</DependentUpon>
     </Compile>
     <Compile Include="DataContext\usp_Upcomingcompetitions_Result.cs">
       <DependentUpon>AthleteJury.tt</DependentUpon>
     </Compile>
+    <Compile Include="ExtendedObjects\usp_Upcomingcompetitions_Result.cs" />
     <Compile Include="Implementation\DBWrapper.cs" />
     <Compile Include="Implementation\JuryDAO.cs" />
     <Compile Include="Interface\IDAO.cs" />
@@ -136,19 +113,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="DataContext\Jury.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Jury.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <EntityDeploy Include="DataContext\AthleteJury.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AthleteJury.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="DataContext\AthleteJury.edmx.diagram">
       <DependentUpon>AthleteJury.edmx</DependentUpon>
-    </None>
-    <None Include="DataContext\Jury.edmx.diagram">
-      <DependentUpon>Jury.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -163,16 +133,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AthleteJury.edmx</DependentUpon>
       <LastGenOutput>AthleteJury.cs</LastGenOutput>
-    </Content>
-    <Content Include="DataContext\Jury.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Jury.edmx</DependentUpon>
-      <LastGenOutput>Jury.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DataContext\Jury.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Jury.edmx</DependentUpon>
-      <LastGenOutput>Jury.cs</LastGenOutput>
     </Content>
     <Content Include="DBScripts\Schema.sql" />
   </ItemGroup>

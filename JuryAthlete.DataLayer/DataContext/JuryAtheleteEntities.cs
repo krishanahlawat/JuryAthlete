@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace JuryAthlete.DataLayer.DataContext
 {
-    public partial class JuryAtheleteEntities
+    public partial class AthleteJuryEntities
     {
-        public static JuryAtheleteEntities GetDBContext()
+        public static AthleteJuryEntities GetDBContext()
         {
-            JuryAtheleteEntities context = new JuryAtheleteEntities();            
+            AthleteJuryEntities context = new AthleteJuryEntities();            
             return context;
         }
 
-        public JuryAtheleteEntities(string dbName)
+        public AthleteJuryEntities(string dbName)
                 : base(dbName)
         {
         }

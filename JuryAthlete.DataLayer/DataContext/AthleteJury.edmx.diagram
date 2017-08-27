@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2a4c87c0a7304dd59d4093a307abc6ec" Name="Diagram1">
+      <Diagram DiagramId="b12dacb7df284348b57035eff973536d" Name="Diagram1">
         <EntityTypeShape EntityType="AthleteJuryModel.t_competitions" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AthleteJuryModel.t_md_saisons" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AthleteJuryModel.t_membres" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />

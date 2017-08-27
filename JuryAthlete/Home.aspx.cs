@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using JuryAthlete.DataLayer.DataContext;
+using System;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace JuryAthlete
@@ -12,7 +10,7 @@ namespace JuryAthlete
         protected void Page_Load(object sender, EventArgs e)
         {            
             gv.AutoGenerateColumns = true;
-            JuryAthlete.DataLayer.DataContext.JuryAtheleteEntities context = new DataLayer.DataContext.JuryAtheleteEntities();
+            AthleteJuryEntities context = new AthleteJuryEntities();
             gv.DataSource =  context.t_competitions.ToList();
             gv.DataBind();
         }

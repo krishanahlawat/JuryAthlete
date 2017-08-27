@@ -16,7 +16,7 @@ from
 where
 	c.f_date >= curdate()
 	and c.f_actif = 1
-order by c.f_date, c.f_club;
+order by c.f_date, c.f_club
 
 
 DROP PROCEDURE IF EXISTS usp_OfficielsMeritantsList;

@@ -1,4 +1,5 @@
-﻿using NLog;
+﻿using JuryAthlete.DataLayer.Implementation;
+using NLog;
 using System;
 using System.Linq;
 
@@ -25,8 +26,9 @@ namespace JuryAthlete
             try
             {
                 SetErrors();
-                //var data = DBWrapper.OfficielsMeritantsList();
-                //int pageCount = data.Count() / 4;
+                
+                var data = DBWrapper.OfficielsMeritantsList(DateTime.Now.Year);
+                int pageCount = data.Rows.Count / 4;
 
                 //GridView1.DataSource = data.Take(pageCount);
                 //GridView1.DataBind();

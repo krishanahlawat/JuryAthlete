@@ -24,7 +24,7 @@ namespace JuryAthlete.DataLayer.Implementation
             try
             {
                 List<T> list = new List<T>();
-                using (var context = JuryAtheleteEntities.GetDBContext())
+                using (var context = AthleteJuryEntities.GetDBContext())
                 {
                     IQueryable<T> dbQuery = context.Set<T>();
 
@@ -49,7 +49,7 @@ namespace JuryAthlete.DataLayer.Implementation
             try
             {
                 List<T> list = new List<T>();
-                using (var context = JuryAtheleteEntities.GetDBContext())
+                using (var context = AthleteJuryEntities.GetDBContext())
                 {
                     IQueryable<T> dbQuery = context.Set<T>();
 
@@ -75,7 +75,7 @@ namespace JuryAthlete.DataLayer.Implementation
             try
             {
                 T item = null;
-                using (var dbContext = JuryAtheleteEntities.GetDBContext())
+                using (var dbContext = AthleteJuryEntities.GetDBContext())
                 {
                     IQueryable<T> dbQuery = dbContext.Set<T>();
 
@@ -101,7 +101,7 @@ namespace JuryAthlete.DataLayer.Implementation
             try
             {
                 bool result = false;
-                using (var dbContext = JuryAtheleteEntities.GetDBContext())
+                using (var dbContext = AthleteJuryEntities.GetDBContext())
                 {
                     foreach (T item in items)
                         dbContext.Entry(item).State = EntityState.Added;
@@ -127,7 +127,7 @@ namespace JuryAthlete.DataLayer.Implementation
                 throw;
             }
         }
-        public virtual void Add(JuryAtheleteEntities dbContext, params T[] items)
+        public virtual void Add(AthleteJuryEntities dbContext, params T[] items)
         {
             try
             {
@@ -152,7 +152,7 @@ namespace JuryAthlete.DataLayer.Implementation
             try
             {
                 bool result = false;
-                using (var dbContext = JuryAtheleteEntities.GetDBContext())
+                using (var dbContext = AthleteJuryEntities.GetDBContext())
                 {
                     foreach (T item in items)
                         dbContext.Entry(item).State = EntityState.Modified;
@@ -178,7 +178,7 @@ namespace JuryAthlete.DataLayer.Implementation
             try
             {
                 bool result = false;
-                using (var dbContext = JuryAtheleteEntities.GetDBContext())
+                using (var dbContext = AthleteJuryEntities.GetDBContext())
                 {
                     foreach (T item in items)
                         dbContext.Entry(item).State = EntityState.Deleted;
@@ -199,7 +199,7 @@ namespace JuryAthlete.DataLayer.Implementation
                 throw;
             }
         }
-        public virtual void SaveChanges(JuryAtheleteEntities dbContext)
+        public virtual void SaveChanges(AthleteJuryEntities dbContext)
         {
             try
             {
