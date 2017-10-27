@@ -241,9 +241,9 @@
       <Project>{7c1aa007-1349-4eb2-aef4-ef8a4d23ad00}</Project>
       <Name>JuryAthlete.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\JuryAthlete.DataLayer\JuryAthlete.DataLayer.csproj">
+    <ProjectReference Include="..\JuryAthlete.DataLayer\JuryAthlete.DAL_OLD_MySQL.csproj">
       <Project>{ec034084-cf78-4529-a45d-d467027cb32b}</Project>
-      <Name>JuryAthlete.DataLayer</Name>
+      <Name>JuryAthlete.DAL_OLD_MySQL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
