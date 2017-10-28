@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace JuryAthlete
+namespace POC_EFMySQL
 {
-    public partial class Staff_Login : System.Web.UI.Page
+    public partial class Contact : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

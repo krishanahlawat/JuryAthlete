@@ -7,117 +7,99 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JuryAthlete {
+namespace POC_EFMySQL.Account {
     
     
-    public partial class Staff_Disponibilites {
+    public partial class TwoFactorAuthenticationSignIn {
         
         /// <summary>
-        /// Calendar1 control.
+        /// sendcode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
+        protected global::System.Web.UI.WebControls.PlaceHolder sendcode;
         
         /// <summary>
-        /// Calendar2 control.
+        /// Providers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar2;
+        protected global::System.Web.UI.WebControls.DropDownList Providers;
         
         /// <summary>
-        /// Calendar3 control.
+        /// ProviderSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar3;
+        protected global::System.Web.UI.WebControls.Button ProviderSubmit;
         
         /// <summary>
-        /// Calendar4 control.
+        /// verifycode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar4;
+        protected global::System.Web.UI.WebControls.PlaceHolder verifycode;
         
         /// <summary>
-        /// Calendar5 control.
+        /// SelectedProvider control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar5;
+        protected global::System.Web.UI.WebControls.HiddenField SelectedProvider;
         
         /// <summary>
-        /// Calendar6 control.
+        /// ErrorMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar6;
+        protected global::System.Web.UI.WebControls.PlaceHolder ErrorMessage;
         
         /// <summary>
-        /// Calendar7 control.
+        /// FailureText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar7;
+        protected global::System.Web.UI.WebControls.Literal FailureText;
         
         /// <summary>
-        /// Calendar8 control.
+        /// Code control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar8;
+        protected global::System.Web.UI.WebControls.TextBox Code;
         
         /// <summary>
-        /// Calendar9 control.
+        /// RememberBrowser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar9;
+        protected global::System.Web.UI.WebControls.CheckBox RememberBrowser;
         
         /// <summary>
-        /// Calendar10 control.
+        /// CodeSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar10;
-        
-        /// <summary>
-        /// Calendar11 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar11;
-        
-        /// <summary>
-        /// Calendar12 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar12;
+        protected global::System.Web.UI.WebControls.Button CodeSubmit;
     }
 }

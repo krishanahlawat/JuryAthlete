@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JuryAthlete
+namespace POC_EFMySQL.Account
 {
 
 
-    public partial class Staff_Login
+    public partial class Lockout
     {
     }
 }

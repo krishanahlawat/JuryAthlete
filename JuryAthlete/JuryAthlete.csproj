@@ -116,10 +116,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Competitions.aspx" />
     <Content Include="css\bootstrap-datepicker.css" />
     <Content Include="css\bootstrap-datetimepicker.min.css" />
     <Content Include="css\GoogleFont.css" />
     <Content Include="Global.asax" />
+    <Content Include="Home.aspx" />
     <Content Include="js\bootstrap-datetimepicker.min.js" />
     <Content Include="js\bootstrap-select.min.js" />
     <Content Include="js\bootstrap-datepicker.js" />
@@ -156,18 +158,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Competitions.aspx" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\custom.css" />
     <Content Include="css\font-awesome.min.css" />
-    <Content Include="Default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\lato-bold-webfont.svg" />
     <Content Include="fonts\lato-light-webfont.svg" />
     <Content Include="fonts\lato-medium-webfont.svg" />
     <Content Include="fonts\lato-regular-webfont.svg" />
-    <Content Include="Home.aspx" />
     <Content Include="images\1.jpg" />
     <Content Include="images\2.jpg" />
     <Content Include="images\3.jpg" />
@@ -192,24 +191,11 @@
     <Content Include="js\jquery.js" />
     <Content Include="Properties\PublishProfiles\Publish.pubxml.user" />
     <Content Include="StaffOfficielsMeritants.aspx" />
-    <Content Include="Staff_Disponibilites..aspx" />
-    <Content Include="Staff_Login.aspx" />
     <Content Include="Staff_Prestations.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\SessionHelper.cs" />
-    <Compile Include="Competitions.aspx.cs">
-      <DependentUpon>Competitions.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Competitions.aspx.designer.cs">
-      <DependentUpon>Competitions.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -235,20 +221,6 @@
     <Compile Include="StaffOfficielsMeritants.aspx.designer.cs">
       <DependentUpon>StaffOfficielsMeritants.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Staff_Disponibilites..aspx.cs">
-      <DependentUpon>Staff_Disponibilites..aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Staff_Disponibilites..aspx.designer.cs">
-      <DependentUpon>Staff_Disponibilites..aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Staff_Login.aspx.cs">
-      <DependentUpon>Staff_Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Staff_Login.aspx.designer.cs">
-      <DependentUpon>Staff_Login.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Staff_Prestations.aspx.cs">
       <DependentUpon>Staff_Prestations.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -267,6 +239,7 @@
       <Name>JuryAthlete.DAL.MSSQL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
