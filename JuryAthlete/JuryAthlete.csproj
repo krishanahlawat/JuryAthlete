@@ -262,6 +262,10 @@
       <Project>{7c1aa007-1349-4eb2-aef4-ef8a4d23ad00}</Project>
       <Name>JuryAthlete.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\JuryAthlete.DAL.MSSQL\JuryAthlete.DAL.MSSQL.csproj">
+      <Project>{7A8D0E84-6990-4769-83B4-941497C2AFDC}</Project>
+      <Name>JuryAthlete.DAL.MSSQL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

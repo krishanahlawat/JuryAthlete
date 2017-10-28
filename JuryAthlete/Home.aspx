@@ -33,10 +33,7 @@
                         <h4>N'hésitez pas à faire savoir auprès de votre secrétaire de club votre intérêt pour vous y inscrire. </h4>
                     </div>
 
-                    <div class="text-widget">
-                        <asp:GridView runat="server" id="gv">
-
-                        </asp:GridView>
+                    <div class="text-widget">                        
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-﻿using JuryAthlete.DataLayer.Implementation;
+﻿using JuryAthlete.DAL.MSSQL;
 using NLog;
 using System;
 
@@ -13,7 +13,7 @@ namespace JuryAthlete
             try
             {
                 SetErrors();
-                gvCompetitions.DataSource = DBWrapper.ExecuteSP("usp_Upcomingcompetitions");
+                gvCompetitions.DataSource = DBWrapper.Upcomingcompetitions();
                 gvCompetitions.DataBind();
             }
             catch (Exception ex)

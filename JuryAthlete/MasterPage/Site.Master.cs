@@ -1,6 +1,6 @@
 ﻿using JuryAthlete.Classes;
-using JuryAthlete.DataLayer.DataContext;
-using JuryAthlete.DataLayer.Implementation;
+using JuryAthlete.DAL.MSSQL;
+using JuryAthlete.DAL.MSSQL.DataContext;
 using System;
 
 namespace JuryAthlete.MasterPage
@@ -16,7 +16,7 @@ namespace JuryAthlete.MasterPage
         {
             try
             {
-                var memeberAccess = new JuryDAO<t_membres_acces>();
+                var memeberAccess = new JuryAthleteDAO<t_membres_acces>();
                 var user = memeberAccess.GetSingle(item => item.f_login == txtUsername.Text);
                 if (user == null)
                 {
