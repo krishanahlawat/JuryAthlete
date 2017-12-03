@@ -7,11 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JuryAthlete", "JuryAthlete\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JuryAthlete.Common", "JuryAthlete.Common\JuryAthlete.Common.csproj", "{7C1AA007-1349-4EB2-AEF4-EF8A4D23AD00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JuryAthlete.DAL.MSSQL", "JuryAthlete.DAL.MSSQL\JuryAthlete.DAL.MSSQL.csproj", "{7A8D0E84-6990-4769-83B4-941497C2AFDC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JuryAthlete.DAL.MySQL", "JuryAthlete.DAL.MySQL\JuryAthlete.DAL.MySQL.csproj", "{48EF300D-E4D5-4436-876F-3D04219815B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JuryAthlete.DAL", "JuryAthlete.DAL.MSSQL\JuryAthlete.DAL.csproj", "{7A8D0E84-6990-4769-83B4-941497C2AFDC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JuryAthlete.BusinessLogic", "JuryAthlete.BusinessLogic\JuryAthlete.BusinessLogic.csproj", "{8CC83B22-B86A-43B0-A39B-802707C010CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JuryAthlete.DBUtility", "JuryAthlete.DBUtility\JuryAthlete.DBUtility.csproj", "{2617E1D7-EED3-41E8-A875-BCDAA8DCC54A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +31,14 @@ Global
 		{7A8D0E84-6990-4769-83B4-941497C2AFDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A8D0E84-6990-4769-83B4-941497C2AFDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A8D0E84-6990-4769-83B4-941497C2AFDC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{48EF300D-E4D5-4436-876F-3D04219815B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{48EF300D-E4D5-4436-876F-3D04219815B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{48EF300D-E4D5-4436-876F-3D04219815B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{48EF300D-E4D5-4436-876F-3D04219815B4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8CC83B22-B86A-43B0-A39B-802707C010CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8CC83B22-B86A-43B0-A39B-802707C010CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CC83B22-B86A-43B0-A39B-802707C010CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CC83B22-B86A-43B0-A39B-802707C010CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2617E1D7-EED3-41E8-A875-BCDAA8DCC54A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2617E1D7-EED3-41E8-A875-BCDAA8DCC54A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2617E1D7-EED3-41E8-A875-BCDAA8DCC54A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2617E1D7-EED3-41E8-A875-BCDAA8DCC54A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

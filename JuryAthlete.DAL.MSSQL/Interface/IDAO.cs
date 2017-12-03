@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace JuryAthlete.DAL.MSSQL
+namespace JuryAthlete.DAL
 {
     /// <summary>
     /// A generic repository pattern that wraps the IDbSet interface.

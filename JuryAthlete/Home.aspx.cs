@@ -1,4 +1,4 @@
-﻿using JuryAthlete.DAL.MSSQL.DataContext;
+﻿using JuryAthlete.DAL.DataContext;
 using System;
 using System.Linq;
 using System.Web.UI.WebControls;

@@ -116,6 +116,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administration\Home.aspx" />
     <Content Include="Competitions.aspx" />
     <Content Include="css\bootstrap-datepicker.css" />
     <Content Include="css\bootstrap-datetimepicker.min.css" />
@@ -148,6 +149,7 @@
     <Content Include="fonts\lato-regular-webfont.woff2" />
     <Content Include="MasterPage\Site.Master" />
     <Content Include="packages.config" />
+    <Content Include="MasterPage\Admin.Master" />
     <None Include="Properties\PublishProfiles\FTP.pubxml" />
     <None Include="Properties\PublishProfiles\Publish.pubxml" />
     <None Include="Web.Debug.config">
@@ -195,6 +197,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Classes\SessionHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -205,6 +214,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
     <Compile Include="MasterPage\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -234,9 +250,9 @@
       <Project>{7c1aa007-1349-4eb2-aef4-ef8a4d23ad00}</Project>
       <Name>JuryAthlete.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\JuryAthlete.DAL.MSSQL\JuryAthlete.DAL.MSSQL.csproj">
+    <ProjectReference Include="..\JuryAthlete.DAL.MSSQL\JuryAthlete.DAL.csproj">
       <Project>{7A8D0E84-6990-4769-83B4-941497C2AFDC}</Project>
-      <Name>JuryAthlete.DAL.MSSQL</Name>
+      <Name>JuryAthlete.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

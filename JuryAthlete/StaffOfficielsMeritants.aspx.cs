@@ -1,4 +1,4 @@
-﻿using JuryAthlete.DAL.MSSQL;
+﻿using JuryAthlete.DAL;
 using NLog;
 using System;
 using System.Linq;

@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7A8D0E84-6990-4769-83B4-941497C2AFDC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JuryAthlete.DAL</RootNamespace>
+    <AssemblyName>JuryAthlete.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.5.0.0-beta11\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataContext\JuryAthelete.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JuryAthelete.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\JuryAthelete.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\JuryAthelete.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JuryAthelete.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_annonces.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_batches.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_brevets.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_catalogue.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_clubs.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_competitions.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_competitions_officiels.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_compteurvisites.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_convocations.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_convocations_demandes.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_convocations_epreuves.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_convocations_officiels.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_documents_admin.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_download.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_epreuves.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_formations.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_history.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_historylogin.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_mailinglist.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_md_ddlb.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_md_provinces.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_md_saisons.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_md_status.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_md_status_compet.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_md_status_rel.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_md_tailles.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_md_typecompet.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_md_typecompet_province.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_membres.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_membres_acces.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_membres_declarations.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_membres_documents.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_membres_requests.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_menu_left.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_messages.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_messages_files.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_messages_recipients.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_news.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_officiels.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_officiels_declarations.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_officiels_disponibilites.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_officiels_disponibilites_exceptions.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_officiels_meritants.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_officiels_roles.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_parametres.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_pays.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_quiz_answers.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_quiz_history.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_quiz_history_tests.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_quiz_questions.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_roles.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_sites.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_sondage_answers.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_sondage_ipaddress.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_sondage_questions.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_sorties_club.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_sorties_participants.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_sorties_voyages.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_test_xls.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\t_transactions.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\usp_GetOfficielsByCompetition_Result.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\usp_OfficielsMeritantsList_Result.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\usp_PlannedBenefitsPerSaison_Result.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\usp_PlannedBenefits_Result.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\usp_Summary_Result.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\usp_Upcomingcompetitions_Result.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\vw_Jubilaires.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\vw_ListeDesCompétitionsFutures.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\vw_ListeDesOfficielsDeBruxelles.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\vw_ListeDesOfficielsDeBruxellesAncien.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\vw_OfficielBruxellesFull.cs">
+      <DependentUpon>JuryAthelete.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Implementation\DBWrapper.cs" />
+    <Compile Include="DataContext\JuryAtheleteEntities.cs" />
+    <Compile Include="Implementation\JuryAthleteDAO.cs" />
+    <Compile Include="Interface\IDAO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ExtendedObjects\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="DataContext\JuryAthelete.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>JuryAthelete.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DataContext\JuryAthelete.edmx.diagram">
+      <DependentUpon>JuryAthelete.edmx</DependentUpon>
+    </None>
+    <None Include="DBScripts\Jury - SQL - Structure and Data.zip" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataContext\JuryAthelete.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>JuryAthelete.edmx</DependentUpon>
+      <LastGenOutput>JuryAthelete.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataContext\JuryAthelete.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>JuryAthelete.edmx</DependentUpon>
+      <LastGenOutput>JuryAthelete.cs</LastGenOutput>
+    </Content>
+    <Content Include="DBScripts\juryathle_20170811_data.sql" />
+    <Content Include="DBScripts\juryathle_structure_20170811.sql" />
+    <Content Include="DBScripts\Structure\0 juryathle_structure_20170811.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JuryAthlete.DAL.MSSQL.DataContext
+namespace JuryAthlete.DAL.DataContext
 {
     public partial class AthleteJuryEntities
     {

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JuryAthlete.DAL.MSSQL.DataContext
+namespace JuryAthlete.DAL.DataContext
 {
     using System;
     using System.Data.Entity;

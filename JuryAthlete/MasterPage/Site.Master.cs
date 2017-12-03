@@ -1,6 +1,6 @@
 ﻿using JuryAthlete.Classes;
-using JuryAthlete.DAL.MSSQL;
-using JuryAthlete.DAL.MSSQL.DataContext;
+using JuryAthlete.DAL;
+using JuryAthlete.DAL.DataContext;
 using System;
 
 namespace JuryAthlete.MasterPage
